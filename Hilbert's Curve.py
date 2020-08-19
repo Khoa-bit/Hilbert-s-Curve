@@ -13,6 +13,7 @@ def hilbert_order(n, dis, direction, order, coor_list, a_turtle):
     if n == 1:
         for i in range(4):
             a_turtle.goto(coor_list[i])
+            a_turtle.down()
     else:
         half_dis = dis / 2
         if direction == NORTH:
@@ -60,10 +61,11 @@ def list_order(coor, order, direction, distance):
 def main():
     my_turtle = turtle.Turtle()
     my_win = turtle.Screen()
-    my_turtle.speed(1)
+    my_turtle.speed(0)
     tmp_dir = NORTH
 
-    hilbert_order(4, DISTANCE, tmp_dir, CW, list_order([0, 0], CCW, tmp_dir, DISTANCE), my_turtle)
+    my_turtle.up()
+    hilbert_order(6, DISTANCE, tmp_dir, CCW, list_order([0, 0], CW, tmp_dir, DISTANCE), my_turtle)
     my_win.exitonclick()
 
 
