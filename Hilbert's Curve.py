@@ -14,9 +14,15 @@ SOUTH = [2, 3, 0, 1]
 WEST = [3, 0, 1, 2]
 
 
+def CLI_UI():
+    global N, DRAW_SPEED
+    N = int(input("Enter the order of Hilbert's Curve: "))
+    DRAW_SPEED = int(input("Enter drawing speed (0 is the fastest): "))
+
+
 def hilbert_order(n, dis, direction, order, coor_list, a_turtle):
     """
-
+    Recursively draw the smaller order of Hilbert's curve.
     :param n: The order of Hilbert's curve
     :type n: int
     :param dis: The distance to the 4 corner of a square (radius)
@@ -94,6 +100,7 @@ def list_order(coor, order, direction, distance):
 
 
 def main():
+    CLI_UI()
     my_turtle = turtle.Turtle()
     my_win = turtle.Screen()
     my_turtle.speed(DRAW_SPEED)
@@ -102,6 +109,8 @@ def main():
     hilbert_order(N, DISTANCE, NORTH, CCW, list_order([0, 0], CW, NORTH, DISTANCE), my_turtle)
 
     my_win.exitonclick()
+
+    # TODO: ADD UI and README.md
 
 
 if __name__ == '__main__':
