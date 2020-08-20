@@ -110,8 +110,6 @@ def main():
 
     my_win.exitonclick()
 
-    # TODO: ADD UI and README.md
-
 
 if __name__ == '__main__':
     main()
